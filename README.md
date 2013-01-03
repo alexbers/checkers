@@ -1,0 +1,4 @@
+checkers
+========
+
+International draughts
