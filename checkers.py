@@ -26,7 +26,7 @@ import random
 from PyQt4 import QtCore, QtGui
 
 
-class game:
+class Game:
     def __init__(self):
         self.board = [
             list(' b b b b b'),
@@ -221,7 +221,7 @@ class Board(QtGui.QFrame):
 
         self.is_black_computer = False
 
-        self.game = game()
+        self.game = Game()
 
         self.checker_to_pixmap = {
             "w": QtGui.QPixmap("white.bmp"),

@@ -3,12 +3,12 @@
 # mail: bay@hackerdom.ru
 
 import unittest
-from checkers import game
+from checkers import Game
 
 
 class calc_turns_tests(unittest.TestCase):
     def test_init_possible_moves(self):
-        g = game()
+        g = Game()
         g.turn = "B"
         moves = g.get_possible_moves()
         valid_moves = [
@@ -20,7 +20,7 @@ class calc_turns_tests(unittest.TestCase):
         for move in moves:
             self.assertTrue(move in valid_moves)
 
-        g = game()
+        g = Game()
         g.turn = "W"
         moves = g.get_possible_moves()
         valid_moves = [
@@ -33,7 +33,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_king_moves(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' . . . . .'),  # 0
             list('. . . . . '),  # 1
@@ -56,7 +56,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_simple_capture(self):
-        g = game()
+        g = Game()
         g.board = [
             list(" b b b b b"),
             list('b b b b b '),
@@ -77,7 +77,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_multi_capture(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' b b b b b'),  # 0
             list('b b b . b '),  # 1
@@ -99,7 +99,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_advanced_capture(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' b b b b b'),  # 0
             list('b b b b b '),  # 1
@@ -123,7 +123,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_more_advanced_capture(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' . . b . b'),  # 0
             list('. b b b b '),  # 1
@@ -145,7 +145,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_king_capture(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' . . . . .'),  # 0
             list('. . . . . '),  # 1
@@ -168,7 +168,7 @@ class calc_turns_tests(unittest.TestCase):
             self.assertTrue(move in valid_moves)
 
     def test_king_multi_capture(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' . . . . .'),  # 0
             list('. . . . . '),  # 1
@@ -196,7 +196,7 @@ class calc_turns_tests(unittest.TestCase):
 
 class make_turns_tests(unittest.TestCase):
     def test_simple_move(self):
-        g = game()
+        g = Game()
         board = [
             list(' b b b b b'),
             list('b b b b b '),
@@ -225,7 +225,7 @@ class make_turns_tests(unittest.TestCase):
         self.assertEqual(newboard, validboard)
 
     def test_simple_attack(self):
-        g = game()
+        g = Game()
         board = [
             list(' b b b b b'),
             list('b b b b b '),
@@ -254,7 +254,7 @@ class make_turns_tests(unittest.TestCase):
         self.assertEqual(newboard, validboard)
 
     def test_few_moves(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' b b b b b'),  # 0
             list('b b b b b '),  # 1
@@ -303,7 +303,7 @@ class make_turns_tests(unittest.TestCase):
         self.assertEqual(g.board, validboard)
 
     def test_kings_becoming(self):
-        g = game()
+        g = Game()
         g.board = [
             list(' . . . . .'),  # 0
             list('. w . . . '),  # 1
